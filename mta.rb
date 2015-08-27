@@ -40,7 +40,10 @@ the_end = gets.chomp
 
 start_index = mta[start_line_symbol].index(start)
 end_index = mta[end_line_symbol].index(the_end)
+start_us_index = mta[start_line_symbol].index('us')
+end_us_index = mta[end_line_symbol].index('us')
 
+puts
 puts 'start line = ' + start_line.to_s
 puts 'start station = ' + start.to_s
 puts 'end line = ' + end_line.to_s
@@ -48,7 +51,13 @@ puts 'end station = ' + the_end.to_s
 puts 'start station index = ' + start_index.to_s
 puts 'end station index = ' + end_index.to_s
 
-stops = (mta[start_line_symbol].index(start) - mta[end_line_symbol].index(the_end)).abs
+if start_line == end_line
+  stops = (start_index - end_index).abs
+else
+  stops = (start_index - start_us_index).abs + (end_us_index - end_index).abs
+end
+
+
 puts stops
 
 
