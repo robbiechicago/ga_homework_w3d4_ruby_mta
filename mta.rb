@@ -101,7 +101,13 @@ until resume == false
 
   #ask if you want to go again or quit
   puts #print an empty line
-  print 
+  print "(a)gain or (q)uit?"
+  quitter = gets.chomp.downcase
+  if quitter == 'q'
+    resume = false
+  end
+end
+
 
 
 
