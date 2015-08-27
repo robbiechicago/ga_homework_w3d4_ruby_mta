@@ -4,30 +4,60 @@ mta = {
   :line6 => ['gc','33','28-6','23-6','us','ap']
 }
 
-print 'select a line (l, n or 6): '
-line = gets.chomp
+print 'Select your starting line (l, n or 6): '
+start_line = gets.chomp
 
-if line == 'l'
-  line = :linel
-elsif line == 'n'
-  line = :linen
+if start_line == 'l'
+  start_line = :linel
+elsif start_line == 'n'
+  start_line = :linen
 else
-  line = :line6
+  start_line = :line6
 end
 
-print mta[line]
+print mta[start_line]
 
 puts
-print 'select a station: '
+print 'Select your starting station: '
 start = gets.chomp
-
 puts start
 
+print 'Select your ending line (l, n or 6): '
+end_line = gets.chomp
+
+if end_line == 'l'
+  end_line = :linel
+elsif end_line == 'n'
+  end_line = :linen
+else
+  end_line = :line6
+end
+
+print mta[end_line]
+puts
 print 'select an end station: '
 the_end = gets.chomp
 
-puts mta[line].index(start)
-puts mta[line].index(the_end)
+puts mta[start_line].index(start)
+puts mta[end_line].index(the_end)
 
-stops = (mta[line].index(start) - mta[line].index(the_end)).abs
+stops = (mta[start_line].index(start) - mta[end_line].index(the_end)).abs
 puts stops
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
